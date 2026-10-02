@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
     static final int MAX = 3000;
@@ -13,13 +15,15 @@ public class Main {
         return nd;
     }
 
-    public static void main(String[] args) {
-        for (int i = 1; i <= MAX; i++) {
+    public static void main(String[] args) throws IOException {
+        FileWriter fr=new FileWriter("output/integers.txt");
+        fr.write("Sample text");
+        fr.close();
 
+        for (int i = 1; i <= MAX; i++) {
             for (int j = 0; j < MAX_LENGTH - getNumberOfDigits(i); j++) {
                 System.out.print(" ");
             }
-
             System.out.print(i);
             if (i < MAX) {
                 System.out.print(", ");
