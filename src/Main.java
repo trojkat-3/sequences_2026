@@ -1,11 +1,12 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
     static final int MAX = 3000;
     static final int MAX_IN_LINE = 20;
-    static final int MAX_LENGTH = getNumberOfDigits(MAX);
-    static final boolean WRITE_TO_FILE = false;
+    static final boolean WRITE_TO_FILE = true;
 
     private static int getNumberOfDigits(int n) {
         int nd = 0;
@@ -17,12 +18,22 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // Integers
+        ArrayList<Integer> sequence=new ArrayList<>();
+        for (int i = 1; i <= MAX; i++) {
+            sequence.add(i*i);
+        }
+        // Squares
+        // Primes
+
         String out = "";
         for (int i = 1; i <= MAX; i++) {
-            for (int j = 0; j < MAX_LENGTH - getNumberOfDigits(i); j++) {
+            int n=sequence.get(i-1);
+            int maxLength=getNumberOfDigits(Collections.max(sequence));
+            for (int j = 0; j < maxLength - getNumberOfDigits(n); j++) {
                 out += " ";
             }
-            out += Integer.toString(i);
+            out += Integer.toString(n);
             if (i < MAX) {
                 out += ", ";
             }
