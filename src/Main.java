@@ -15,22 +15,22 @@ public class Main {
         return nd;
     }
 
-    public static void main(String[] args) throws IOException {
-        FileWriter fr=new FileWriter("output/integers.txt");
-        fr.write("Sample text");
-        fr.close();
-
-        for (int i = 1; i <= MAX; i++) {
-            for (int j = 0; j < MAX_LENGTH - getNumberOfDigits(i); j++) {
-                System.out.print(" ");
+    public static void main(String[] args) {
+        try (FileWriter fr = new FileWriter("output/integers.txt")) {
+            for (int i = 1; i <= MAX; i++) {
+                for (int j = 0; j < MAX_LENGTH - getNumberOfDigits(i); j++) {
+                    fr.write(" ");
+                }
+                fr.write(i+"");
+                if (i < MAX) {
+                    fr.write(", ");
+                }
+                if (i % MAX_IN_LINE == 0) {
+                    fr.write("\n");
+                }
             }
-            System.out.print(i);
-            if (i < MAX) {
-                System.out.print(", ");
-            }
-            if (i % MAX_IN_LINE == 0) {
-                System.out.print("\n");
-            }
+        } catch (IOException e) {
+            System.out.println("Can't open file.");
         }
     }
 }
