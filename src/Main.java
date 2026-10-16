@@ -12,12 +12,12 @@ public class Main {
         for (int i = 1; i <= MAX; i++) {
             sequence.add(i);
         }
-        printerToFile.print(sequence);
+        printerToFile.print(sequence, "Integers");
         sequence.clear();
         // Squares
-        for (int i = 1; i <= MAX; i++) {
+        for (int i = 1; i*i <= MAX; i++) {
             sequence.add(i*i);
         }
-        printerToFile.print(sequence);
+        printerToFile.print(sequence, "Squares");
     }
 }

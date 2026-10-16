@@ -30,8 +30,8 @@ public class IntegersPrinter {
         return nd;
     }
 
-    void print(ArrayList<Integer> sequence){
-        String out = "";
+    void print(ArrayList<Integer> sequence, String header){
+        String out ="------ "+ header+" ------\n";
         for (int i = 1; i <= sequence.size(); i++) {
             int n=sequence.get(i-1);
             int maxLength=getNumberOfDigits(Collections.max(sequence));
