@@ -6,7 +6,15 @@ import java.util.Collections;
 public class IntegersPrinter {
 
     static final int MAX_IN_LINE = 20;
-    static final boolean WRITE_TO_FILE = false;
+    private String filename;
+
+    public IntegersPrinter(){
+        filename=null;
+    }
+
+    public IntegersPrinter(String filename){
+        this.filename=filename;
+    }
 
     private int getNumberOfDigits(int n) {
         int nd = 0;
@@ -33,8 +41,8 @@ public class IntegersPrinter {
                 out += "\n";
             }
         }
-        if (WRITE_TO_FILE) {
-            try (FileWriter fr = new FileWriter("output/integers.txt")) {
+        if (filename!=null) {
+            try (FileWriter fr = new FileWriter("output/"+filename)) {
                 fr.write(out);
             } catch (IOException e) {
                 System.out.println("Can't open file.");

@@ -1,23 +1,23 @@
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Main {
     static final int MAX = 3000;
 
     public static void main(String[] args) {
         IntegersPrinter printer=new IntegersPrinter();
+        IntegersPrinter printerToFile=new IntegersPrinter("integers.txt");
 
         // Integers
         ArrayList<Integer> sequence=new ArrayList<>();
-        /*for (int i = 1; i <= MAX; i++) {
+        for (int i = 1; i <= MAX; i++) {
             sequence.add(i);
-        }*/
+        }
+        printerToFile.print(sequence);
+        sequence.clear();
         // Squares
         for (int i = 1; i <= MAX; i++) {
             sequence.add(i*i);
         }
-        printer.print(sequence);
+        printerToFile.print(sequence);
     }
 }
