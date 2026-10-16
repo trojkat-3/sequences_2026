@@ -13,7 +13,12 @@ public class IntegersPrinter {
     }
 
     public IntegersPrinter(String filename){
-        this.filename=filename;
+        this.filename="output/"+filename;
+        try (FileWriter fr = new FileWriter(this.filename)) {
+            fr.write("");
+        } catch (IOException e) {
+            System.out.println("Can't open file.");
+        }
     }
 
     private int getNumberOfDigits(int n) {
@@ -42,7 +47,7 @@ public class IntegersPrinter {
             }
         }
         if (filename!=null) {
-            try (FileWriter fr = new FileWriter("output/"+filename)) {
+            try (FileWriter fr = new FileWriter(filename, true)) {
                 fr.write(out);
             } catch (IOException e) {
                 System.out.println("Can't open file.");
