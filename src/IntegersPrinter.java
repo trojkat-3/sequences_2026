@@ -42,10 +42,12 @@ public class IntegersPrinter {
             if (i < sequence.size()) {
                 out += ", ";
             }
-            if (i % MAX_IN_LINE == 0) {
+            if (i % MAX_IN_LINE == 0 && i< sequence.size()) {
                 out += "\n";
             }
         }
+        out += "\n";
+
         if (filename!=null) {
             try (FileWriter fr = new FileWriter(filename, true)) {
                 fr.write(out);
