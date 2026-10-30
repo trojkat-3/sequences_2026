@@ -15,9 +15,18 @@ public class Main {
         return true;
     }
 
-    public static void main(String[] args) {
-        //System.out.println(isPrime(1021));
+    private static int fibonacci(int n, ArrayList<Integer> fib) {
+        if (n < fib.size()) {
+            return fib.get(n);
+        }
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1, fib) + fibonacci(n - 2, fib);
+        }
+    }
 
+    public static void main(String[] args) {
         IntegersPrinter printer = new IntegersPrinter();
         IntegersPrinter printerToFile = new IntegersPrinter("integers.txt");
 
@@ -45,6 +54,17 @@ public class Main {
             p++;
         }
         printerToFile.print(sequence, "Primes");
+        sequence.clear();
+
+        // Fibonacci sequence
+        int i=0;
+        int f;
+        while ((f=fibonacci(i,sequence))<=MAX) {
+            sequence.add(f);
+            i++;
+        }
+        printerToFile.print(sequence, "Fibonacci sequence");
+
 
     }
 }
