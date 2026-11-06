@@ -1,3 +1,5 @@
+import sequences.Sequence;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -5,7 +7,7 @@ import java.util.Collections;
 
 public class IntegersPrinter {
 
-    static final int MAX_IN_LINE = 20;
+    static final int MAX_IN_LINE = 15;
     private String filename;
 
     public IntegersPrinter(){
@@ -30,8 +32,9 @@ public class IntegersPrinter {
         return nd;
     }
 
-    void print(ArrayList<Integer> sequence, String header){
-        String out ="------ "+ header+" ------\n";
+    void print(Sequence sq){
+        ArrayList<Integer> sequence=sq.getSequence();
+        String out ="------ "+ sq.getName()+" ------\n";
         for (int i = 1; i <= sequence.size(); i++) {
             int n=sequence.get(i-1);
             int maxLength=getNumberOfDigits(Collections.max(sequence));

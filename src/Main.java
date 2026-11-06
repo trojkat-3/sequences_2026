@@ -7,20 +7,19 @@ public class Main {
         IntegersPrinter printerToFile = new IntegersPrinter("integers.txt");
 
         // Integers
-        Integers integers=new Integers();
-        printerToFile.print(integers.getSequence(), "Integers");
+        printerToFile.print(new Integers());
 
         // Squares
-        Squares squares=new Squares();
-        printerToFile.print(squares.getSequence(), "Squares");
+        Sequence squares=new Squares();
+        printerToFile.print(squares);
 
         // Primes
-        Primes primes=new Primes();
-        printerToFile.print(primes.getSequence(), "Primes");
+        Sequence primes=new Primes();
+        printerToFile.print(primes);
 
         // Fibonacci sequence
-        Fibonacci fib=new Fibonacci();
-        printerToFile.print(fib.getSequence(), "Fibonacci sequence");
+        Sequence fib=new Fibonacci();
+        printerToFile.print(fib);
 
 
     }
