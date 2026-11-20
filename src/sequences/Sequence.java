@@ -1,6 +1,7 @@
 package sequences;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 abstract public class Sequence {
 
@@ -25,5 +26,21 @@ abstract public class Sequence {
     }
     public ArrayList<Integer> getSequence() {
         return sequence;
+    }
+
+    public ArrayList<Integer> decompose(int n){
+        ArrayList<Integer> sqDesc=new ArrayList<>(sequence);
+        Collections.sort(sqDesc,Collections.reverseOrder());
+        ArrayList<Integer> ret=new ArrayList<>();
+        int i=0;
+        while(n>0 && i<sqDesc.size()){
+            if (sqDesc.get(i)<=n){
+                ret.add(sqDesc.get(i));
+                n-=sqDesc.get(i);
+            } else {
+                i++;
+            }
+        }
+        return ret;
     }
 }

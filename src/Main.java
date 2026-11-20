@@ -13,10 +13,12 @@ public class Main {
         Sequence squares=new Squares();
         squares.setMax(10000);
         printerToFile.print(squares);
+        System.out.println(squares.decompose(45));
 
         // Primes
         Sequence primes=new Primes();
         printerToFile.print(primes);
+        System.out.println(primes.decompose(44));
 
         // Fibonacci sequence
         Sequence fib=new Fibonacci();
