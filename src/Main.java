@@ -11,6 +11,7 @@ public class Main {
 
         // Squares
         Sequence squares=new Squares();
+        squares.setMax(10000);
         printerToFile.print(squares);
 
         // Primes
@@ -19,8 +20,12 @@ public class Main {
 
         // Fibonacci sequence
         Sequence fib=new Fibonacci();
+        fib.setMax(100000);
         printerToFile.print(fib);
 
+        fib=new Fibonacci(-3,2);
+        fib.setMax(100000);
+        printerToFile.print(fib);
 
     }
 }

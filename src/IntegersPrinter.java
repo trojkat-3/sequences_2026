@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class IntegersPrinter {
 
-    static final int MAX_IN_LINE = 15;
+    static final int MAX_IN_LINE = 12;
     private String filename;
 
     public IntegersPrinter(){

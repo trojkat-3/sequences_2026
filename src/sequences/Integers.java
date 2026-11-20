@@ -9,7 +9,7 @@ public class Integers extends Sequence {
 
     @Override
     void initialize() {
-        for (int i = 1; i <= MAX; i++) {
+        for (int i = 1; i <= max; i++) {
             sequence.add(i);
         }
     }

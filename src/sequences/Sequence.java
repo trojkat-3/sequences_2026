@@ -3,7 +3,14 @@ package sequences;
 import java.util.ArrayList;
 
 abstract public class Sequence {
-    protected static final int MAX = 1000;
+
+    protected int max = 1000;
+
+    public void setMax(int max) {
+        this.max = max;
+        sequence.clear();
+        initialize();
+    }
 
     protected String name;
     protected ArrayList<Integer> sequence=new ArrayList<>();
