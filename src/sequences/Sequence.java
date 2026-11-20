@@ -1,5 +1,7 @@
 package sequences;
 
+import exceptions.CantDecomposeException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -28,7 +30,9 @@ abstract public class Sequence {
         return sequence;
     }
 
-    public ArrayList<Integer> decompose(int n){
+    public ArrayList<Integer> decompose(int n)
+            throws CantDecomposeException {
+        int nSrc=n;
         ArrayList<Integer> sqDesc=new ArrayList<>(sequence);
         Collections.sort(sqDesc,Collections.reverseOrder());
         ArrayList<Integer> ret=new ArrayList<>();
@@ -40,6 +44,9 @@ abstract public class Sequence {
             } else {
                 i++;
             }
+        }
+        if (n>0){
+            throw new CantDecomposeException(nSrc, name);
         }
         return ret;
     }

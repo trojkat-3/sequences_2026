@@ -1,3 +1,4 @@
+import exceptions.CantDecomposeException;
 import sequences.*;
 
 public class Main {
@@ -10,22 +11,32 @@ public class Main {
         printerToFile.print(new Integers());
 
         // Squares
-        Sequence squares=new Squares();
+        Sequence squares = new Squares();
         squares.setMax(10000);
         printerToFile.print(squares);
-        System.out.println(squares.decompose(45));
+        try {
+            System.out.println(squares.decompose(45));
+        } catch (CantDecomposeException e) {
+            throw new RuntimeException(e);
+        }
 
         // Primes
-        Sequence primes=new Primes();
+        Sequence primes = new Primes();
         printerToFile.print(primes);
-        System.out.println(primes.decompose(44));
+        try {
+            System.out.println(primes.decompose(44));
+        } catch (CantDecomposeException ex) {
+            System.out.println(ex.getMessage());
+            // ex.printStackTrace();
+        }
+
 
         // Fibonacci sequence
-        Sequence fib=new Fibonacci();
+        Sequence fib = new Fibonacci();
         fib.setMax(100000);
         printerToFile.print(fib);
 
-        fib=new Fibonacci(-3,2);
+        fib = new Fibonacci(-3, 2);
         fib.setMax(100000);
         printerToFile.print(fib);
 
