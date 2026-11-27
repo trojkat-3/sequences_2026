@@ -40,4 +40,18 @@ public abstract class AbstractPrinter {
         output(out);
         return out;
     }
+
+    public String printDecomposition(ArrayList<Integer> list){
+        int n=0;
+        String str="";
+        for (Integer k: list){
+            n+=k;
+            str+="+"+k;
+        }
+        str=str.substring(1);
+        str=n+"="+str;
+        output(str);
+        return str;
+    }
+
 }

@@ -18,7 +18,8 @@ public class Main {
         squares.setMax(10000);
         printerToFile.print(squares);
         try {
-            System.out.println(squares.decompose(4500));
+            printer.printDecomposition(squares.decompose(4500));
+            //System.out.println(squares.decompose(4500));
         } catch (CantDecomposeException e) {
             throw new RuntimeException(e);
         }
@@ -27,9 +28,9 @@ public class Main {
         Sequence primes = new Primes();
         printerToFile.print(primes);
         try {
-            System.out.println(primes.getSum(500));
-            System.out.println(primes.decompose(2025));
-            System.out.println(primes.decompose(44));
+            System.out.println(primes.getSum(100));
+            printer.printDecomposition(primes.decompose(2025));
+            printer.printDecomposition(primes.decompose(44));
         } catch (CantDecomposeException ex) {
             System.out.println(ex.getMessage());
             // ex.printStackTrace();
