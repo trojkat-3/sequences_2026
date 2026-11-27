@@ -34,7 +34,15 @@ public class Main {
         } catch (OutOfBoundsException ex) {
             System.out.println(ex.getMessage());
         }
+        // Arithmetic sequence
+        Sequence a=new Arithmetic(2,7);
+        printerToFile.print(a);
+        try {
+            System.out.println(a.getSum(2000));
 
+        } catch (OutOfBoundsException ex){
+            System.out.println("This should never happen!");
+        }
 
         // Fibonacci sequence
         Sequence fib = new Fibonacci();
