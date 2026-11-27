@@ -1,4 +1,5 @@
 import exceptions.CantDecomposeException;
+import exceptions.OutOfBoundsException;
 import sequences.*;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
         squares.setMax(10000);
         printerToFile.print(squares);
         try {
-            System.out.println(squares.decompose(45));
+            System.out.println(squares.decompose(4500));
         } catch (CantDecomposeException e) {
             throw new RuntimeException(e);
         }
@@ -24,10 +25,14 @@ public class Main {
         Sequence primes = new Primes();
         printerToFile.print(primes);
         try {
+            System.out.println(primes.getSum(500));
+            System.out.println(primes.decompose(2025));
             System.out.println(primes.decompose(44));
         } catch (CantDecomposeException ex) {
             System.out.println(ex.getMessage());
             // ex.printStackTrace();
+        } catch (OutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
         }
 
 
