@@ -1,27 +1,12 @@
+package Printers;
+
 import sequences.Sequence;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class IntegersPrinter {
-
+public abstract class AbstractPrinter {
     static final int MAX_IN_LINE = 12;
-    private String filename;
-
-    public IntegersPrinter(){
-        filename=null;
-    }
-
-    public IntegersPrinter(String filename){
-        this.filename="output/"+filename;
-        try (FileWriter fr = new FileWriter(this.filename)) {
-            fr.write("");
-        } catch (IOException e) {
-            System.out.println("Can't open file.");
-        }
-    }
 
     private int getNumberOfDigits(int n) {
         int nd = 0;
@@ -32,7 +17,9 @@ public class IntegersPrinter {
         return nd;
     }
 
-    void print(Sequence sq){
+    abstract void output(String str);
+
+    public String print(Sequence sq){
         ArrayList<Integer> sequence=sq.getSequence();
         String out ="------ "+ sq.getName()+" ------\n";
         for (int i = 1; i <= sequence.size(); i++) {
@@ -50,15 +37,7 @@ public class IntegersPrinter {
             }
         }
         out += "\n";
-
-        if (filename!=null) {
-            try (FileWriter fr = new FileWriter(filename, true)) {
-                fr.write(out);
-            } catch (IOException e) {
-                System.out.println("Can't open file.");
-            }
-        } else {
-            System.out.println(out);
-        }
+        output(out);
+        return out;
     }
 }

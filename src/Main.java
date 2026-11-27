@@ -1,3 +1,5 @@
+import Printers.PrinterFile;
+import Printers.PrinterStdOut;
 import exceptions.CantDecomposeException;
 import exceptions.OutOfBoundsException;
 import sequences.*;
@@ -5,8 +7,8 @@ import sequences.*;
 public class Main {
 
     public static void main(String[] args) {
-        IntegersPrinter printer = new IntegersPrinter();
-        IntegersPrinter printerToFile = new IntegersPrinter("integers.txt");
+        PrinterStdOut printer = new PrinterStdOut();
+        PrinterFile printerToFile = new PrinterFile("integers.txt");
 
         // Integers
         printerToFile.print(new Integers());
